@@ -1,0 +1,20 @@
+body{
+	background-color: #cdcdcd;
+}
+h1{
+	font-size: 150px;
+}
+#postar{
+
+	font-size: 50px;
+}
+input{
+	font-size: 25px;
+}
+button{
+	background-color: #cdcdcd;
+	font-size: 35px;
+}
+#hora {
+	font-size: 15px;
+}

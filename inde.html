@@ -1,0 +1,89 @@
+	<!DOCTYPE html>
+<html>
+<head>
+	<title>Posts</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/inde.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+
+	<center>
+		<h1>Coment's</h1>
+		<div id="postar">
+			<table>
+				<td>
+					<tr>Nome: <input type="text" placeholder="Nome do usuario" v-model="nome">	|	</tr>
+					<tr>Texto: <input type="text" placeholder="Oque você quer postar?" v-model="texto"></tr>
+					<tr><button id="btnPostar" v-on:click="comentar()">postar</button></tr>
+				</td>
+			</table>
+
+			<p>_____________________________________</p>
+
+			<div v-for="mensagem in postagem" id="caixaTexto">
+				<p >{{ mensagem.nome }}: <br>{{ mensagem.texto }}</b></p>
+				<p id="hora">{{ mensagem.hora }}:{{ mensagem.minutos }}</p>
+				<div id="estilo">
+					<button id="btnLike" v-on:click="mudarCorL()">like</button>
+					<button id="btnDeslike" v-on:click="mudarCorD()">deslike</button>
+				</div>
+			</div>
+			
+
+		</div>
+	</center>
+	
+	<script>
+
+		var like = 0;
+		var deslike = 0;
+
+		var data = new Date();
+
+		new Vue({
+			el: "#postar",
+			data: {
+				nome: "",
+				texto: "",
+				hora: "",
+				minutos: "",
+				postagem: [],
+
+			},
+			methods: {
+				mudarCorL: function(){
+					document.getElementById("btnLike").style.backgroundColor = "#6655ff";
+					document.getElementById("btnDeslike").style.backgroundColor = "#cdcdcd"; 
+				},
+
+				mudarCorD: function(){
+					document.getElementById("btnLike").style.backgroundColor = "#cdcdcd";
+					document.getElementById("btnDeslike").style.backgroundColor = "#6655ff"; 
+				},
+				comentar: function() {
+
+
+					var novaPostagem = {
+						nome: this.nome,
+						texto: this.texto,
+						hora: data.getHours(),
+						minutos: data.getMinutes(),
+
+					};
+
+					alert(novaPostagem)
+
+					this.postagem.push(novaPostagem);
+
+				}
+
+			}
+		})
+
+		
+	</script>
+	
+</body>
+</html>

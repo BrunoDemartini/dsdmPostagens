@@ -1,0 +1,12 @@
+body{
+	background-color: #c8c8c8;
+
+}
+
+article {
+
+	width: 800px;
+	box-shadow: 5px 10px 20px black;
+	background-color: white;
+	font-size: 50px;
+}
